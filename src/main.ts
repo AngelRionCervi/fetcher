@@ -4,7 +4,14 @@ interface namedQuery {
 
 type endpoint = string | string[] | namedQuery;
 
+function isObject(val: any) {
+    return val !== null && typeof val !== "function" && typeof val === "object";
+}
+
 const __fetch = (url: string, options: any) => {
+    if (options.method === "post" && isObject(options.body)) {
+        options.body = JSON.stringify(options.body);
+    }
     console.log(options)
     return fetch(url, options)
         .then((res) => {
@@ -116,10 +123,10 @@ export default (url: string, options: any = {}): [Function, Function] => {
         let newOptions: any;
         if (Array.isArray(data)) {
             newOptions = data.reduce((acc, d) => {
-                return [...acc, { ...options, ...overOptions, body: JSON.stringify(d), method: "post" }];
+                return [...acc, { ...options, ...overOptions, body: d, method: "post" }];
             }, []);
         } else {
-            newOptions = { ...options, ...overOptions, body: JSON.stringify(data), method: "post" };
+            newOptions = { ...options, ...overOptions, body: data, method: "post" };
         }
         return __start(endpoint, newOptions);
     };
