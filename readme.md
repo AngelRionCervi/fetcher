@@ -1,7 +1,7 @@
-# Fetcher
+# fetchbutitsabitdifferent
 
 ```javascript
-import fetcher from "@elonbezos/fetcher";
+import fetcher from "fetchbutitsabitdifferent";
 
 (async () => {
     const [get, post] = fetcher("https://jsonplaceholder.typicode.com", { cache: "no-store" });
