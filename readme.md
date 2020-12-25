@@ -19,7 +19,8 @@ import fetcher from "@elonbezos/fetcher";
     // (404 for the second query as "/posts2" doesn't exist on jsonplaceholder)
 
     // Makes 2 post requests, "/posts" and "/posts2" both with { data: "muchadata" } as payload
-    // last arguments is used to overwrite options from the fetcher instanciation (cache option "no-store" is overwrite for "default" in the posts requests)
+    // last argument is used to overwrite options from the fetcher instanciation, 
+    // (cache option "no-store" is overwrite for "default" in the post requests)
 })();
 ```
 
