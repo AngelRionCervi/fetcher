@@ -26,3 +26,5 @@ import fetcher from "@elonbezos/fetcher";
 
 By default the library will assume you want to receive json and will automatically try to convert the result of a get request to json. 
 If it's not the case you can add `noJson: true` in the options. 
+
+I'm open to any suggestions.
